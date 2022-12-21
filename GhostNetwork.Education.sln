@@ -1,0 +1,18 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GhostNetwork.Education.Api", "GhostNetwork.Education.Api\GhostNetwork.Education.Api.csproj", "{C458E262-1EB1-4B17-84BF-D25F2CA800E3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C458E262-1EB1-4B17-84BF-D25F2CA800E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C458E262-1EB1-4B17-84BF-D25F2CA800E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C458E262-1EB1-4B17-84BF-D25F2CA800E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C458E262-1EB1-4B17-84BF-D25F2CA800E3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+	EndGlobalSection
+EndGlobal

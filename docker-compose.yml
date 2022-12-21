@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  db:
+    image: mongo:5.0.8
+
+  api:
+    build: .
+    ports:
+      - "5500:80"
+    depends_on:
+      - db
+    environment:
+      - MONGO_CONNECTION=mongodb://db:27017/education
+      - ASPNETCORE_ENVIRONMENT=Development
