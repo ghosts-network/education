@@ -52,7 +52,7 @@ public class Startup
         services.AddScoped<IFlashCardsProgressStorage, FlashCardsProgressStorage>(provider =>
             new FlashCardsProgressStorage(provider.GetRequiredService<MongoDbContext>()));
 
-        services.AddSingleton<IFlashCardsCatalog>(new FileBasedFlashCardsCatalog(Environment.ContentRootPath));
+        services.AddSingleton<IFlashCardsCatalog>(_ => new FileBasedFlashCardsCatalog(Environment.ContentRootPath));
     }
 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IServiceProvider provider)
