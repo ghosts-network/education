@@ -18,12 +18,15 @@ public class Startup
 {
     private const string DefaultDbName = "education";
 
-    public Startup(IConfiguration configuration)
+    public Startup(IConfiguration configuration, IWebHostEnvironment environment)
     {
+        Environment = environment;
         Configuration = configuration;
     }
 
     private IConfiguration Configuration { get; }
+
+    private IWebHostEnvironment Environment { get; }
 
     public void ConfigureServices(IServiceCollection services)
     {
@@ -49,7 +52,7 @@ public class Startup
         services.AddScoped<IFlashCardsProgressStorage, FlashCardsProgressStorage>(provider =>
             new FlashCardsProgressStorage(provider.GetRequiredService<MongoDbContext>()));
 
-        services.AddSingleton<IFlashCardsCatalog>(FileBasedFlashCardsCatalog.Instance);
+        services.AddSingleton<IFlashCardsCatalog>(new FileBasedFlashCardsCatalog(Environment.ContentRootPath));
     }
 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IServiceProvider provider)

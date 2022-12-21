@@ -10,16 +10,14 @@ namespace GhostNetwork.Education.Api.Integrations.FlashCards;
 
 public class FileBasedFlashCardsCatalog : IFlashCardsCatalog
 {
-    private FileBasedFlashCardsCatalog()
+    public FileBasedFlashCardsCatalog(string rootDir)
     {
-        var json = File.ReadAllText("catalog.json");
+        var json = File.ReadAllText(Path.Combine(rootDir, "catalog.json"));
         Sets = JsonSerializer.Deserialize<List<FlashCardsSetDetails>>(json, new JsonSerializerOptions()
         {
             PropertyNamingPolicy = JsonNamingPolicy.CamelCase
         })!;
     }
-
-    public static FileBasedFlashCardsCatalog Instance { get; } = new FileBasedFlashCardsCatalog();
 
     private IReadOnlyCollection<FlashCardsSetDetails> Sets { get; }
 
