@@ -71,7 +71,7 @@ public class Startup
         {
             endpoints
                 .MapGet("/flash-cards/sets/{setId}", GetSetByIdHandler.HandleAsync)
-                .Produces<FlashCardsSet>(contentType: MediaTypeNames.Application.Json)
+                .Produces<FlashCardsSetDetailsWithProgressViewModel>(contentType: MediaTypeNames.Application.Json)
                 .Produces(StatusCodes.Status404NotFound, contentType: MediaTypeNames.Application.Json)
                 .WithName("FlashCards_GetSetById")
                 .WithTags("FlashCards");
